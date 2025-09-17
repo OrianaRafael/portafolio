@@ -117,12 +117,24 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
 
+  // Mapeo de nombres en español a IDs de sección
+  const sectionMap = {
+    'Inicio': 'home',
+    'Info': 'about',
+    'Habilidades': 'skills',
+    'Proyectos': 'projects',
+    'Contacto': 'contact'
+  };
+
   // Función para manejar el clic en los enlaces
-  const handleNavClick = (id) => {
+  const handleNavClick = (itemName) => {
     setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const sectionId = sectionMap[itemName];
+    if (sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -135,17 +147,17 @@ const Header = () => {
           whileTap={{ scale: 0.95 }}
           onClick={(e) => {
             e.preventDefault();
-            handleNavClick('home');
+            handleNavClick('Inicio');
           }}
         >
           {"<Portfolio />"}
         </Logo>
 
         <NavLinks $isOpen={isMenuOpen}>
-          {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
+          {Object.keys(sectionMap).map((item) => (
             <NavLink
               key={item}
-              href={`#${item}`}
+              href={`#${sectionMap[item]}`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
@@ -153,7 +165,7 @@ const Header = () => {
                 handleNavClick(item);
               }}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item}
             </NavLink>
           ))}
           

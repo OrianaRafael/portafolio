@@ -167,12 +167,12 @@ const Footer = () => {
               {"<Portfolio />"}
             </Logo>
             <BrandDescription>
-              Desarrollador frontend apasionado por crear experiencias digitales 
-              excepcionales con las últimas tecnologías web.
+              Project Manager altamente calificado y compremetido para el trabajo en equipo, el desarrollo web es otra rama que complementa 
+              la dirección de proyectos web en un desenvolvimiento profesional.
             </BrandDescription>
             <SocialLinks>
               <SocialLink
-                href="https://github.com"
+                href="https://github.com/OrianaRafael"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -180,7 +180,7 @@ const Footer = () => {
                 <FiGithub />
               </SocialLink>
               <SocialLink
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/oriana-rafael-ab773b224/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -188,7 +188,7 @@ const Footer = () => {
                 <FiLinkedin />
               </SocialLink>
               <SocialLink
-                href="mailto:tu.email@ejemplo.com"
+                href="mailto:rafaeloriana2002@gmail.com"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
                 <FiMail />
@@ -207,20 +207,20 @@ const Footer = () => {
 
           <FooterLinks>
             <LinksTitle>Servicios</LinksTitle>
+            <FooterLink href="#">Gestión de Proyectos Tech</FooterLink>
             <FooterLink href="#">Desarrollo Web</FooterLink>
             <FooterLink href="#">Diseño UI/UX</FooterLink>
-            <FooterLink href="#">Aplicaciones React</FooterLink>
             <FooterLink href="#">Consultoría</FooterLink>
           </FooterLinks>
         </FooterTop>
 
         <FooterBottom>
           <Copyright>
-            © {new Date().getFullYear()} Tu Nombre. Todos los derechos reservados.
+            © {new Date().getFullYear()} Oriana Rafael. Todos los derechos reservados.
           </Copyright>
           
           <MadeWith>
-            Hecho con <FiHeart style={{ color: '#CE7D67' }} /> usando React & Styled Components
+            Hecho con <FiHeart style={{ color: '#21358eff' }} /> usando React & Styled Components
           </MadeWith>
           
           <BackToTop

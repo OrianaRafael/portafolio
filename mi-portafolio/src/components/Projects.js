@@ -298,7 +298,7 @@ const projectsData = [
     category: "Fullstack",
     technologies: ["React", "Socket.io", "Node.js", "Redis"],
     githubUrl: "https://github.com",
-    liveUrl: "https://demo.com",
+    liveUrl: "https://culking.com",
     stars: 39,
     featured: true
   }

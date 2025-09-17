@@ -50,11 +50,20 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  /* Mejora de contraste para textos */
-  h1, h2, h3, h4, h5, h6 {
-    color: ${props => props.theme.text};
-    font-weight: 700;
-  }
+  // En GlobalStyles.js, añade esto para resetear estilos de headings:
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+// Y asegúrate de que los estilos específicos de About tengan prioridad:
+.about-section h2 {
+  font-size: 2.8rem !important;
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
 
   /* Scrollbar personalizado */
   ::-webkit-scrollbar {

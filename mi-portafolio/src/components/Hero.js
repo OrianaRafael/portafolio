@@ -311,7 +311,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Hola, soy <Highlight>[Tu Nombre]</Highlight>
+            Hola, soy <Highlight>Oriana Rafael</Highlight>
           </Title>
           
           <Subtitle
@@ -319,7 +319,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Desarrollador <Highlight>Frontend</Highlight> & UI/UX
+            Project <Highlight>Manager</Highlight> & Desarrollo Web
           </Subtitle>
           
           <Description
@@ -328,7 +328,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Creo experiencias digitales increíbles con React, JavaScript y las últimas tecnologías web. 
-            Transformo ideas en código elegante y funcional. ☕
+            Transformo ideas en código elegante y funcional, liderando proyectos desde la concepción hasta la implementación exitosa.
           </Description>
           
           <ButtonGroup
@@ -345,13 +345,13 @@ const Hero = () => {
             </PrimaryButton>
             
             <SecondaryButton
-              href="/cv.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FiDownload /> Descargar CV
-            </SecondaryButton>
+            href="../cv-OrianaRafael.pdf"
+            download="CV-OrianaRafael.pdf"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FiDownload /> Descargar CV
+          </SecondaryButton>
           </ButtonGroup>
 
           <SocialLinks
@@ -360,7 +360,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <SocialLink
-              href="https://github.com"
+              href="https://github.com/OrianaRafael"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, rotate: 5 }}
@@ -370,7 +370,7 @@ const Hero = () => {
             </SocialLink>
             
             <SocialLink
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/oriana-rafael-ab773b224/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, rotate: 5 }}
@@ -380,7 +380,7 @@ const Hero = () => {
             </SocialLink>
             
             <SocialLink
-              href="mailto:tu@email.com"
+              href="mailto:rafaeloriana2002@gmail.com"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -400,8 +400,8 @@ const Hero = () => {
           <CodeLine>
             <span className="variable">techStack</span> = [
           </CodeLine>
-          <CodeLine>&nbsp;&nbsp;<span className="string">"React"</span>,</CodeLine>
-          <CodeLine>&nbsp;&nbsp;<span className="string">"JavaScript"</span>,</CodeLine>
+          <CodeLine>&nbsp;&nbsp;<span className="string">"Scrum","Kanban"</span>,</CodeLine>
+          <CodeLine>&nbsp;&nbsp;<span className="string">"React", "Vue"</span>,</CodeLine>
           <CodeLine>&nbsp;&nbsp;<span className="string">"TypeScript"</span>,</CodeLine>
           <CodeLine>&nbsp;&nbsp;<span className="string">"Node.js"</span></CodeLine>
           <CodeLine>];<BlinkingCursor /></CodeLine>

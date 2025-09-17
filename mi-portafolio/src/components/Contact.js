@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiMail, FiUser, FiMessageSquare, FiSend, FiMapPin, FiPhone, FiClock } from 'react-icons/fi';
+import { FiMail, FiUser, FiMessageSquare, FiSend, FiMapPin, FiPhone, FiClock, FiPhoneCall } from 'react-icons/fi';
 
 const ContactSection = styled.section`
-  padding: 6rem 2rem;
+  padding: 4rem 1rem;
   background: ${props => props.theme.body};
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
 `;
 
 const Title = styled(motion.h2)`
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -23,7 +23,7 @@ const Title = styled(motion.h2)`
   &::after {
     content: '';
     display: block;
-    width: 80px;
+    width: 60px;
     height: 3px;
     background: linear-gradient(90deg, ${props => props.theme.primary}, ${props => props.theme.accent});
     margin: 1rem auto;
@@ -32,26 +32,27 @@ const Title = styled(motion.h2)`
 `;
 
 const ContactContent = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   
-  @media (min-width: 968px) {
-    grid-template-columns: 1fr 1fr;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 `;
 
 const ContactInfo = styled(motion.div)`
   background: ${props => props.theme.card};
-  padding: 2.5rem;
-  border-radius: 20px;
+  padding: 2rem;
+  border-radius: 16px;
   border: 1px solid ${props => props.theme.border};
-  box-shadow: 0 10px 30px ${props => props.theme.shadow};
+  box-shadow: 0 8px 20px ${props => props.theme.shadow};
+  flex: 1;
 `;
 
 const InfoTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
   color: ${props => props.theme.text};
   display: flex;
   align-items: center;
@@ -61,25 +62,25 @@ const InfoTitle = styled.h3`
 const InfoList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 `;
 
 const InfoItem = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.8rem;
 `;
 
 const InfoIcon = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: ${props => props.theme.primary}20;
   display: flex;
   align-items: center;
   justify-content: center;
   color: ${props => props.theme.primary};
-  font-size: 1.2rem;
+  font-size: 1rem;
   flex-shrink: 0;
 `;
 
@@ -90,41 +91,66 @@ const InfoContent = styled.div`
 const InfoLabel = styled.p`
   font-weight: 600;
   color: ${props => props.theme.text};
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
 `;
 
 const InfoText = styled.p`
   color: ${props => props.theme.textSecondary};
-  line-height: 1.5;
+  line-height: 1.4;
+  font-size: 0.9rem;
+`;
+
+const WhatsAppButton = styled(motion.a)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+  }
 `;
 
 const ContactForm = styled(motion.form)`
   background: ${props => props.theme.card};
-  padding: 2.5rem;
-  border-radius: 20px;
+  padding: 2rem;
+  border-radius: 16px;
   border: 1px solid ${props => props.theme.border};
-  box-shadow: 0 10px 30px ${props => props.theme.shadow};
+  box-shadow: 0 8px 20px ${props => props.theme.shadow};
+  flex: 1;
 `;
 
 const FormGroup = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 `;
 
 const Label = styled.label`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: ${props => props.theme.text};
   font-weight: 600;
+  font-size: 0.9rem;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 1px solid ${props => props.theme.border};
-  border-radius: 10px;
+  border-radius: 8px;
   background: ${props => props.theme.body};
   color: ${props => props.theme.text};
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
   
   &:focus {
@@ -135,18 +161,19 @@ const Input = styled.input`
   
   &::placeholder {
     color: ${props => props.theme.textSecondary};
+    font-size: 0.9rem;
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 1rem;
+  padding: 0.8rem;
   border: 1px solid ${props => props.theme.border};
-  border-radius: 10px;
+  border-radius: 8px;
   background: ${props => props.theme.body};
   color: ${props => props.theme.text};
-  font-size: 1rem;
-  min-height: 150px;
+  font-size: 0.9rem;
+  min-height: 120px;
   resize: vertical;
   transition: all 0.3s ease;
   
@@ -158,17 +185,18 @@ const TextArea = styled.textarea`
   
   &::placeholder {
     color: ${props => props.theme.textSecondary};
+    font-size: 0.9rem;
   }
 `;
 
 const SubmitButton = styled(motion.button)`
   width: 100%;
-  padding: 1.2rem;
+  padding: 1rem;
   background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   color: ${props => props.theme.body};
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -179,7 +207,7 @@ const SubmitButton = styled(motion.button)`
   
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px ${props => props.theme.primary}40;
+    box-shadow: 0 8px 20px ${props => props.theme.primary}40;
   }
   
   &:disabled {
@@ -190,11 +218,12 @@ const SubmitButton = styled(motion.button)`
 `;
 
 const StatusMessage = styled(motion.div)`
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 0.8rem;
+  border-radius: 8px;
   margin-top: 1rem;
   text-align: center;
   font-weight: 600;
+  font-size: 0.9rem;
   
   &.success {
     background: ${props => props.theme.tertiary}20;
@@ -270,7 +299,7 @@ const Contact = () => {
               </InfoIcon>
               <InfoContent>
                 <InfoLabel>Ubicación</InfoLabel>
-                <InfoText>Ciudad, País</InfoText>
+                <InfoText>Oruro, Bolivia</InfoText>
               </InfoContent>
             </InfoItem>
             
@@ -280,7 +309,7 @@ const Contact = () => {
               </InfoIcon>
               <InfoContent>
                 <InfoLabel>Teléfono</InfoLabel>
-                <InfoText>+1 (234) 567-8900</InfoText>
+                <InfoText>+591 73803997</InfoText>
               </InfoContent>
             </InfoItem>
             
@@ -290,7 +319,7 @@ const Contact = () => {
               </InfoIcon>
               <InfoContent>
                 <InfoLabel>Email</InfoLabel>
-                <InfoText>tu.email@ejemplo.com</InfoText>
+                <InfoText>rafaeloriana2002@gmail.com</InfoText>
               </InfoContent>
             </InfoItem>
             
@@ -304,6 +333,16 @@ const Contact = () => {
               </InfoContent>
             </InfoItem>
           </InfoList>
+          
+          <WhatsAppButton
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <FiPhoneCall /> Contactar por WhatsApp
+          </WhatsAppButton>
         </ContactInfo>
 
         <ContactForm

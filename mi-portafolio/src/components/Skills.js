@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import { 
   FiCode, 
   FiLayout, 
-  FiSmartphone, 
-  FiDatabase,
-  FiGitBranch,
   FiCloud
 } from 'react-icons/fi';
 
@@ -25,6 +22,20 @@ const Title = styled(motion.h2)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  padding-bottom: 1rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, ${props => props.theme.primary}, ${props => props.theme.accent});
+    border-radius: 2px;
+  }
 `;
 
 const SkillsGrid = styled.div`
@@ -89,11 +100,21 @@ const SkillLevel = styled.div`
 const Skills = () => {
   const skillsData = [
     {
+      icon: <FiCloud />,
+      title: "Project Manager",
+      skills: [
+        { name: "Slack", level: "Intermedio" },
+        { name: "Notion", level: "Intermedio" },
+        { name: "Github", level: "Intermedio" },
+        { name: "Google WorkSpace", level: "Intermedio" }
+      ]
+    },
+    {
       icon: <FiCode />,
       title: "Frontend",
       skills: [
         { name: "React", level: "Avanzado" },
-        { name: "JavaScript", level: "Avanzado" },
+        { name: "Vue", level: "Avanzado" },
         { name: "HTML/CSS", level: "Experto" },
         { name: "TypeScript", level: "Intermedio" }
       ]
@@ -108,16 +129,7 @@ const Skills = () => {
         { name: "Responsive Design", level: "Experto" }
       ]
     },
-    {
-      icon: <FiCloud />,
-      title: "Backend",
-      skills: [
-        { name: "Node.js", level: "Intermedio" },
-        { name: "Express", level: "Intermedio" },
-        { name: "MongoDB", level: "Básico" },
-        { name: "Firebase", level: "Intermedio" }
-      ]
-    }
+    
   ];
 
   return (

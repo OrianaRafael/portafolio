@@ -8,7 +8,7 @@ export const lightTheme = {
   // Colores de fondo y texto
   body: '#f3f6fa',          // 50 - fondo claro
   card: '#FFFFFF',          // Blanco para tarjetas
-  text: '#454f6a',          // 900 - texto principal
+  text: '#292f3aff',          // 900 - texto principal
   textSecondary: '#505c83', // 800 - texto secundario
   
   // Colores adicionales

@@ -1,56 +1,214 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiUser, FiCode, FiHeart } from 'react-icons/fi';
+import { FiCode, FiAward, FiZap, FiUsers } from 'react-icons/fi';
 
 const AboutSection = styled.section`
-  padding: 6rem 2rem;
+  padding: 4.8rem 1rem;
   background: ${props => props.theme.body};
   max-width: 1200px;
   margin: 0 auto;
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const Header = styled.div`
+  text-align: center;
+`;
+
+// Solo modifica el Title en About.js así:
 const Title = styled(motion.h2)`
   font-size: 3rem;
-  text-align: center;
-  margin-bottom: 3rem;
+  font-weight: 800;
   background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 1rem;
+  text-align: center;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, ${props => props.theme.primary}, ${props => props.theme.accent});
+    border-radius: 2px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
-const Content = styled.div`
+const MainContent = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: start;
   }
 `;
 
 const TextContent = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
 
-  @media (min-width: 768px) {
+const Intro = styled(motion.div)`
+  text-align: center;
+  
+  @media (min-width: 1024px) {
     text-align: left;
+  }
+`;
+
+const MainTitle = styled.h3`
+  font-size: 2rem;
+  color: ${props => props.theme.text};
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  
+  span {
+    background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
   }
 `;
 
 const Description = styled.p`
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 2rem;
   color: ${props => props.theme.text}90;
+  margin-bottom: 1rem;
+  text-align: justify;
+`;
+
+const Divider = styled.div`
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    ${props => props.theme.primary}40, 
+    transparent
+  );
+  margin: 0 0;
+`;
+
+const TechSection = styled(motion.div)`
+  margin-top: 0px;
+`;
+
+const TechTitle = styled.h4`
+  font-size: 1.4rem;
+  color: ${props => props.theme.text};
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+`;
+
+const TechGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+`;
+
+const TechBadge = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: ${props => props.theme.card};
+  border: 1px solid ${props => props.theme.primary}20;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px ${props => props.theme.shadow};
+    border-color: ${props => props.theme.primary}40;
+  }
+`;
+
+const TechIcon = styled.div`
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+`;
+
+const TechName = styled.span`
+  color: ${props => props.theme.text};
+  font-weight: 600;
+  font-size: 0.95rem;
+`;
+
+const VisualContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+`;
+
+const ImageContainer = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+`;
+
+const ProfileImageContainer = styled.div`
+  width: 250px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px ${props => props.theme.shadow};
+  border: 3px solid ${props => props.theme.primary}30;
+`;
+
+const ProfileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const StatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
 `;
 
 const StatCard = styled(motion.div)`
@@ -59,138 +217,163 @@ const StatCard = styled(motion.div)`
   border-radius: 15px;
   text-align: center;
   border: 1px solid ${props => props.theme.primary}20;
-  box-shadow: 0 4px 20px ${props => props.theme.shadow};
-`;
-
-const StatIcon = styled.div`
-  font-size: 2rem;
-  color: ${props => props.theme.primary};
-  margin-bottom: 1rem;
-`;
-
-const StatNumber = styled.h3`
-  font-size: 2rem;
-  color: ${props => props.theme.primary};
-  margin-bottom: 0.5rem;
-`;
-
-const StatLabel = styled.p`
-  color: ${props => props.theme.text}70;
-  font-weight: 500;
-`;
-
-const ImageContainer = styled(motion.div)`
+  box-shadow: 0 8px 25px ${props => props.theme.shadow};
   display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ProfileImage = styled.div`
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, ${props => props.theme.primary}, ${props => props.theme.accent});
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
-  color: white;
-  position: relative;
-  overflow: hidden;
+  min-height: 120px;
 
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2" opacity="0.3"/></svg>');
-    background-size: cover;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, ${props => props.theme.primary}, ${props => props.theme.accent});
   }
 `;
 
+const StatIcon = styled.div`
+  font-size: 1.5rem;
+  color: ${props => props.theme.primary};
+  margin-bottom: 0.5rem;
+`;
+
+const StatNumber = styled.h3`
+  font-size: 1.5rem;
+  color: ${props => props.theme.primary};
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+`;
+
+const StatLabel = styled.p`
+  color: ${props => props.theme.text}70;
+  font-weight: 500;
+  font-size: 0.8rem;
+`;
+
 const About = () => {
+
+  const technologies = [
+    { name: "React", icon: "⚛️" },
+    { name: "Vue", icon: "📜" },
+    { name: "TypeScript", icon: "🔷" },
+    { name: "Node.js", icon: "🟢" },
+    { name: "Tailwind", icon: "🎨" },
+    { name: "Git", icon: "📦" }
+  ];
+
+  const stats = [
+    { icon: <FiCode />, number: "2+", label: "Años Experiencia" },
+    { icon: <FiAward />, number: "15+", label: "Proyectos Completados" },
+    { icon: <FiZap />, number: "100%", label: "Dedicación" },
+    { icon: <FiUsers />, number: "10+", label: "Clientes Satisfechos" }
+  ];
+
   return (
     <AboutSection id="about">
-      <Title
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        Sobre Mí
-      </Title>
+      <Container>
+        <Header>
+          <Title
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Sobre Mí
+          </Title>
+        </Header>
 
-      <Content>
-        <TextContent>
-          <Description>
-            Soy un apasionado desarrollador frontend con experiencia en la creación de 
-            aplicaciones web modernas y responsivas. Me encanta transformar ideas en 
-            experiencias digitales increíbles utilizando las últimas tecnologías.
-          </Description>
-          
-          <Description>
-            Mi enfoque se centra en escribir código limpio, eficiente y mantenible, 
-            siempre buscando las mejores prácticas y nuevas tendencias en el desarrollo web.
-          </Description>
-
-          <StatsGrid>
-            <StatCard
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+        <MainContent>
+          <TextContent>
+            <Intro
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <StatIcon>
-                <FiCode />
-              </StatIcon>
-              <StatNumber>2+</StatNumber>
-              <StatLabel>Años de experiencia</StatLabel>
-            </StatCard>
+              <MainTitle>
+                Más que un Desarrollador,<br />
+                <span>un Líder de Proyectos</span>
+              </MainTitle>
 
-            <StatCard
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              <Description>
+                Soy Ingeniero de Sistemas con especialización en Gestión de Proyectos, 
+                dedicado a crear soluciones digitales que no solo son técnicamente sólidas, sino también estratégicamente efectivas.
+              </Description>
+              
+              <Description>
+                Mi expertise único combina:
+
+                <ul>Liderazgo técnico en desarrollo web con React, JavaScript y frameworks modernos</ul>
+
+                <ul>Gestión ágil de proyectos (Scrum, Kanban) que garantizan entregas puntuales y dentro del presupuesto</ul>
+              </Description>
+            </Intro>
+
+            <Divider />
+
+            <TechSection
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <StatIcon>
-                <FiUser />
-              </StatIcon>
-              <StatNumber>15+</StatNumber>
-              <StatLabel>Proyectos completados</StatLabel>
-            </StatCard>
+              <TechTitle>Tecnologías Principales</TechTitle>
+              <TechGrid>
+                {technologies.map((tech, index) => (
+                  <TechBadge
+                    key={tech.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <TechIcon>{tech.icon}</TechIcon>
+                    <TechName>{tech.name}</TechName>
+                  </TechBadge>
+                ))}
+              </TechGrid>
+            </TechSection>
+          </TextContent>
 
-            <StatCard
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+          <VisualContent>
+            <ImageContainer
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              whileHover={{ y: -5 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <StatIcon>
-                <FiHeart />
-              </StatIcon>
-              <StatNumber>100%</StatNumber>
-              <StatLabel>Dedicación</StatLabel>
-            </StatCard>
-          </StatsGrid>
-        </TextContent>
+              <ProfileImageContainer>
+                <ProfileImage 
+                  src="../perfil.DNG"
+                  alt="Líder de Proyectos - Desarrollador Frontend"
+                />
+              </ProfileImageContainer>
+            </ImageContainer>
 
-        <ImageContainer
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <ProfileImage>
-            👨‍💻
-          </ProfileImage>
-        </ImageContainer>
-      </Content>
+            <StatsGrid>
+              {stats.map((stat, index) => (
+                <StatCard
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <StatIcon>{stat.icon}</StatIcon>
+                  <StatNumber>{stat.number}</StatNumber>
+                  <StatLabel>{stat.label}</StatLabel>
+                </StatCard>
+              ))}
+            </StatsGrid>
+          </VisualContent>
+        </MainContent>
+      </Container>
     </AboutSection>
   );
 };
